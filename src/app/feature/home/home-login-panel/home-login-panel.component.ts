@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { validationMessage } from 'src/app/shared/validators/validationMessage';
 import { AuthFormGroupHelper } from '../../form-groups/auth-formgroup-helper';
 
 @Component({
@@ -21,13 +22,8 @@ export class HomeLoginPanelComponent implements OnInit {
     console.log(this.memberLoginForm);
   }
 
-  public withErrorMessage(control: string): string{
-    switch(control){
-      case 'username':
-        return 'username error'
-      default:
-        return 'password error'
-    } 
+  public getErrorMessage(control: string): string{
+    return validationMessage(control, this.memberLoginForm);
   }
 
 }

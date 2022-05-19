@@ -9,13 +9,13 @@
             <mat-form-field appearance="outline">
                 <mat-label>Username</mat-label>
                 <input matInput formControlName="username">
-                <mat-error>{{ withErrorMessage('username') }}</mat-error>
+                <mat-error>{{ getErrorMessage('username') }}</mat-error>
             </mat-form-field>
             
             <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
                 <input matInput formControlName="password">
-                <mat-error>{{ withErrorMessage('password') }}</mat-error>
+                <mat-error>{{ getErrorMessage('password') }}</mat-error>
             </mat-form-field>
 
             <div style="margin-top:20px">
