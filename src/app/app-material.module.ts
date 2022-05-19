@@ -9,7 +9,16 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
+import {MatRippleModule, MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions} from '@angular/material/core';
+ 
 
+const globalRippleConfig: RippleGlobalOptions = {
+  disabled: false,
+  animation: {
+    enterDuration: 300,
+    exitDuration: 0,
+  }
+};
 
 const MaterialComponents = [
   MatButtonModule,
@@ -19,6 +28,7 @@ const MaterialComponents = [
   MatInputModule,
   MatDividerModule,
   MatIconModule,
+  MatRippleModule
 ];
 
 @NgModule({
@@ -28,6 +38,9 @@ const MaterialComponents = [
   ],
   exports:[
     MaterialComponents
+  ],
+  providers: [
+    {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: globalRippleConfig}
   ]
 })
 export class AppMaterialModule { }

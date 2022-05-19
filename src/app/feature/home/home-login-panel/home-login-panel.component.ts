@@ -29,4 +29,5 @@ export class HomeLoginPanelComponent implements OnInit {
         return 'password error'
     } 
   }
+
 }

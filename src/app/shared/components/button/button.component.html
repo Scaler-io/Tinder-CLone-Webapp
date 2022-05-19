@@ -1,0 +1,14 @@
+<button 
+    matRipple
+    [matRippleDisabled]="isDisabled"
+    [type]="isSubmit ? 'submit': 'button'"
+    class="tinder-clone--button"
+    [class.autoWidth]="isAutoWidth" 
+    [style.width]="!isAutoWidth ? customWidth : null"
+    (click)="onClick()"
+    [style.backgroundColor]="color"
+    [disabled]="isDisabled"
+    [class.disabled]="isDisabled"
+>
+{{ buttonText }}
+</button>

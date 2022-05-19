@@ -24,7 +24,15 @@
             &-item.item-text{
                 font-size: 14px;
                 padding-top: 4px;
+                letter-spacing: 1px;
+                cursor: pointer;
+                transition: color .3s;
+                padding: 5px;
+                &:hover{
+                    color: $color-blue-700; 
+                }
             }
         }
     }
 }
+
