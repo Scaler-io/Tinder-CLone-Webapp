@@ -1,0 +1,30 @@
+<mat-card class="tinder-login-card">
+    <mat-card-header class="tinder-login-card--header">   
+        <mat-card-title class="card-title-text">Explore Your Journey</mat-card-title>
+        <mat-card-subtitle class="card-subtitle-text">With Us</mat-card-subtitle>
+    </mat-card-header>
+
+    <div class="tinder-login-card--form-container">
+        <form [formGroup]="memberLoginForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username">
+                <mat-error>{{ withErrorMessage('username') }}</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password">
+                <mat-error>{{ withErrorMessage('password') }}</mat-error>
+            </mat-form-field>
+
+            <div class="">
+                <button type="submit" mat-flat-button color="primary" class="btn-block">Log in</button>
+            </div>
+        </form>
+    </div>
+
+    <mat-card-footer class="tinder-login-card--footer">
+        <mat-card-subtitle>By clicking Log In, you agree to our Terms. Learn how we process your data in Privacy Policy and Cookie Policy.</mat-card-subtitle>
+    </mat-card-footer>
+</mat-card>

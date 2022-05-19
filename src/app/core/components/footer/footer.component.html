@@ -1,0 +1,51 @@
+<section class="footer-main">
+  <div class="footer-main--grid-list">
+    <div
+      *ngFor="let item of footerItemData"
+      class="footer-main--grid-list-item"
+    >
+      <tinder-clone-footer-item
+        [footerContent]="item"
+      ></tinder-clone-footer-item>
+    </div>
+    <div class="footer-main--grid-list-item">
+      <mat-divider></mat-divider>
+      <div class="footer-main--grid-list-item-terms">
+        <p class="terms-paragraph">
+          All you singles, listen up: if you’re looking to fall in love, want to
+          start dating, ready to start a relationship, or want to keep it
+          casual, you need to be on Tinder. With over 55 billion matches made,
+          it’s the best free dating site to find your next best match. You’ve
+          probably noticed; the dating landscape looks very different today,
+          with most of us choosing to meet people online. With Tinder, the
+          world’s most popular free dating app, you have millions of other
+          singles at your fingertips, and they’re all ready to meet someone like
+          you. Whether you’re straight or part of the LGBTQIA community,
+          Tinder’s here to get the sparks flying.
+        </p>
+        <p class="terms-paragraph">
+          There really is something for everyone on Tinder. Looking for a
+          relationship? You’ve got it. Want to make friends online? Say no more.
+          Just started uni and want to make the most of your experience? Tinder
+          U’s got you covered. Tinder isn’t your average dating site; it’s the
+          most diverse dating app, where adults of all backgrounds and
+          experiences are invited to make connections, memories and everything
+          in between.
+        </p>
+      </div>
+      <mat-divider></mat-divider>
+      <div class="footer-main--grid-list-item-liner">
+        <div class="liner-link-content">
+            <span>FAQ</span><span>/</span>
+            <span>Safety tips</span><span>/</span>
+            <span>Terms</span><span>/</span>
+            <span>Cookie Policy</span><span>/</span>
+            <span>Privacy settings</span>
+        </div>
+        <div class="liner-copyright-content">
+            <p>© 2022 Match Group, LLC, All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

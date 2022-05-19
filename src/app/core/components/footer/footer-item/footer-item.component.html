@@ -1,0 +1,19 @@
+<mat-card class="mat-elevation-z0">
+  <mat-card-header>
+    <mat-card-title>{{ footerContent.headerTitle }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ul class="footer-link-nav">
+      <li
+        class="footer-link-nav-item"
+        [class.socialOrientation]="footerContent.isSocial"
+        *ngFor="let item of footerContent.links"
+      >
+        <span *ngIf="!item.isIcon">{{ item.linkText }}</span>
+        <span *ngIf="item.isIcon">
+          <mat-icon svgIcon="{{ item.icon }}" aria-hidden="false" aria-label="Example home icon"></mat-icon>
+        </span>
+      </li>
+    </ul>
+  </mat-card-content>
+</mat-card>

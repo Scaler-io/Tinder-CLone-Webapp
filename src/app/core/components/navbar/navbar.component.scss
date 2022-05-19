@@ -1,0 +1,30 @@
+@import '../../../../assets/styles/colors';
+@import '../../../../assets/styles/mixins';
+
+.nav--main{
+    padding: 20px;
+    background: none;
+    padding: 20px;
+    &-container{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        padding: 30px 15px 20px;
+        .nav-brand{
+            font-size: 25px;
+            color: $color-blue-500;
+            cursor: pointer;
+        }
+        .nav-navigation{
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            flex-direction: row-reverse;
+            text-transform: uppercase;
+            &-item.item-text{
+                font-size: 14px;
+                padding-top: 4px;
+            }
+        }
+    }
+}

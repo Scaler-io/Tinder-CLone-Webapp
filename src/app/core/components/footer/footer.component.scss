@@ -1,0 +1,49 @@
+@import '../../../../assets/styles/colors';
+
+.footer-main{
+    &--grid-list{
+        padding: 20px 25px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 23px;
+        grid-row-gap: 0px;
+
+        &-item{
+            &:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
+            &:nth-child(2) { grid-area: 1 / 2 / 2 / 3; }
+            &:nth-child(3) { grid-area: 1 / 3 / 2 / 4; }
+            &:nth-child(4) { grid-area: 1 / 4 / 2 / 5; }
+            &:nth-child(5) { 
+                grid-area: 2 / 1 / 3 / 6; 
+                padding: 15px 0 0 0;
+            }
+
+            &-terms{
+                padding: 20px 25px;
+                .terms-paragraph{
+                    color: $color-gray-500;
+                    text-align: justify;
+                    font-size: 13px;
+                    word-break: break-all;
+                }
+            }
+
+            &-liner{
+                display: flex;
+                justify-content: space-between;
+                padding: 20px 25px;
+                color: $color-gray-500;
+                .liner-link-content{
+                    span{
+                        cursor: pointer;
+                        &:hover{color: $color-blue-700;}
+                    }
+                    span:not(:first-child){
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
