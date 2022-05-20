@@ -5,6 +5,7 @@ import { AppMaterialModule } from '../app-material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { FooterItemComponent } from './components/footer/footer-item/footer-item.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     AppMaterialModule,
     HttpClientModule,
+    RouterModule
   ],
   exports: [
     NavbarComponent,

@@ -10,5 +10,6 @@
     [disabled]="isDisabled"
     [class.disabled]="isDisabled"
 >
-<span>{{ buttonText }}</span>
+<span *ngIf="!spinnerActive">{{ text }}</span>
+<div *ngIf="spinnerActive" class="loader"></div>
 </button>

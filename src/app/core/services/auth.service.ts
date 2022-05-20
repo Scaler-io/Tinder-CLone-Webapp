@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { AuthUser } from 'src/app/shared/models/auth';
+import { UserRoles } from 'src/app/shared/models/user-role';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,6 +18,16 @@ export class AuthService {
     }));
   }
 
+  public performAutoLogin(): Observable<AuthUser>{
+    const token = this.getTokenFromLocalStorage();
+    if(token){
+      return this.http.get<AuthUser>(`${environment.tinderCloneApiUrl}/account`).pipe(map(response => {
+        return response;
+      }));
+    }
+    return of();
+  }
+
   public setTokenToLocalStorage(token: string): void{
     localStorage.setItem('auth-token', token);
   }
@@ -27,5 +38,25 @@ export class AuthService {
 
   public removeTokenFromLocalStorage(){
     localStorage.removeItem('auth-token');
+  }
+  
+  public isUserIsASuperAdmin(user: AuthUser): boolean{
+    if(user.roles.includes(UserRoles.Administrator) && user.roles.includes(UserRoles.Moderator)) return true;
+    return false;
+  }
+
+  public isUserIsASystemAdmin(user: AuthUser): boolean{
+    if(user.roles.length == 1 && user.roles.includes(UserRoles.Administrator)) return true;
+    return false;
+  }
+
+  public isUserIsAModerator(user: AuthUser): boolean{
+    if(user.roles.length == 1 && user.roles.includes(UserRoles.Moderator)) return true;
+    return false;
+  }
+
+  public isUserIsAMember(user: AuthUser): boolean{
+    if(user.roles.length == 1 && user.roles.includes(UserRoles.Member)) return true;
+    return false;
   }
 }

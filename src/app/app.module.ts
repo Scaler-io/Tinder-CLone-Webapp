@@ -13,6 +13,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { AuthEffect } from './feature/state/auth/auth.effects';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppLoadingInterceptor } from './core/interceptors/app-loading.interceptor';
+import { ConfirmResourceAuthorityInterceptor } from './core/interceptors/confirm-resource-authority.interceptor';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { AppLoadingInterceptor } from './core/interceptors/app-loading.intercept
     AppRoutingModule,
     BrowserAnimationsModule,
     HomeModule,
+    CoreModule,
     EffectsModule.forRoot([AuthEffect]),
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
@@ -31,6 +34,7 @@ import { AppLoadingInterceptor } from './core/interceptors/app-loading.intercept
     })
   ],
   providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ConfirmResourceAuthorityInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: AppLoadingInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
