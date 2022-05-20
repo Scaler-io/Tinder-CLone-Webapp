@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FooterItemModel, FooterItemModelData } from '../../model/footer-item';
+import { FooterItemModel, FooterItemModelData } from '../../models/footer-item';
 
 @Component({
   selector: 'tinder-clone-footer',

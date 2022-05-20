@@ -19,6 +19,7 @@ export class ButtonComponent implements OnInit {
   @Input() isDisabled: boolean = false;
   @Input() customWidth: string;
   @Input() color: string;
+  @Input() spinnerActive: boolean = false;
 
   @Output() clicked: Subject<any> = new Subject<any>();
   

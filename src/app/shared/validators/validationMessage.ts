@@ -4,6 +4,7 @@ import { ValidationMessage } from "../models/validation-message";
 export const validationMessages: ValidationMessage[] = [
     {error: 'required', formControlName: ['username'], message: 'Please enter username.'},   
     {error: 'required', formControlName: ['password'], message: 'Please enter password.'},   
+    {error: 'Unauthorized', formControlName: ['username'], message: 'Username or password was incorrect.'},   
 ];
 
 export function validationMessage(formControlName: string, formGroup: FormGroup): string {
