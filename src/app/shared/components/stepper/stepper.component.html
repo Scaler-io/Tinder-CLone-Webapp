@@ -1,0 +1,24 @@
+<div class="stepper-container">
+    <mat-card>
+        <mat-card-content>
+            <div class="stepper-header">
+                <ul class="stepper-nav">
+                    <li class="stepper-nav-item" [class.step-line]="i < steps.length-1" [class.step-line--active]="selectedIndex > i" *ngFor="let step of steps; let i = index">
+                        <div class="stepper-step-label"> 
+                             <div class="stepper-step-label-pill" [class.active]="selectedIndex === i" [class.completed]="selectedIndex > i">
+                                 <mat-icon *ngIf="selectedIndex > i; else nos">
+                                    check
+                                 </mat-icon>
+                                 <ng-template #nos>{{ i + 1 }}</ng-template>
+                             </div>
+                             <div>{{ step.label }}</div>    
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="stepper-content">
+               <ng-container [ngTemplateOutlet]="selected.content"></ng-container>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

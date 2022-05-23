@@ -9,8 +9,10 @@ import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs';
 import {MatRippleModule, MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions} from '@angular/material/core';
- 
+import {MatStepperModule} from '@angular/material/stepper';  
+
 
 const globalRippleConfig: RippleGlobalOptions = {
   disabled: false,
@@ -28,7 +30,9 @@ const MaterialComponents = [
   MatInputModule,
   MatDividerModule,
   MatIconModule,
-  MatRippleModule
+  MatRippleModule,
+  MatStepperModule,
+  MatTabsModule
 ];
 
 @NgModule({
