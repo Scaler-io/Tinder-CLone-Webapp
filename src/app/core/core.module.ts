@@ -6,12 +6,14 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FooterItemComponent } from './components/footer/footer-item/footer-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { GenericErrorComponent } from './components/generic-error/generic-error.component';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
-    FooterItemComponent
+    FooterItemComponent,
+    GenericErrorComponent
   ],
   imports: [
     CommonModule,

@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Action, Store } from "@ngrx/store";
 import { catchError, finalize, map, Observable, of, switchMap, tap } from "rxjs";
 import { AuthService } from "src/app/core/services/auth.service";
-import { AuthUser, LoginRequest } from "src/app/shared/models/auth";
+import { AuthError, AuthUser, LoginRequest } from "src/app/shared/models/auth";
 import { AppState } from "src/app/store/app.state";
 import * as authActions from './auth.actions';
 import * as sharedActions from '../shared/shared.actions';
@@ -23,10 +23,10 @@ export class AuthEffect{
                         this.authService.setTokenToLocalStorage(response.token);
                         return new authActions.MemberLoginSuccess(response);
                     }),
-                    catchError((error: any) => {
+                    catchError((e: any) => {
                         this.store.dispatch(new sharedActions.AppLoadingStateChange(false));
-                        const errorResponse = error.error; 
-                        return of(new authActions.MemberLoginFailed(errorResponse));
+                        const errorResponse = <AuthError>{code : e.error.code, message: e.error.message}; 
+                        return of(new authActions.MemberLoginFailed(<AuthError>errorResponse));
                     })
                 );
             })
@@ -48,7 +48,13 @@ export class AuthEffect{
             switchMap((action : authActions.PerformingAutLogin) => {
                 return this.authService.performAutoLogin().pipe(
                     map((response: AuthUser) => {
+                        this.store.dispatch(new sharedActions.AppLoadingStateChange(false));
                         return new authActions.MemberLoginSuccess(response);
+                    }),
+                    catchError(e => {
+                        this.store.dispatch(new sharedActions.AppLoadingStateChange(false));
+                        const errorResponse = <AuthError>{code : e.error.code, message: e.error.message};
+                        return of(new authActions.MemberLoginFailed(errorResponse));
                     })
                 );
             })

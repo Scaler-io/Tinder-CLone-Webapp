@@ -1,3 +1,4 @@
 export enum ErrorCodes{
-    Unauthorized = 'Unauthorized'
+    Unauthorized = 'Unauthorized',
+    InternalServerError = 'InternalServerError'
 }
