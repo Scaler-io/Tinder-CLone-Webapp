@@ -12,6 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatRippleModule, MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions} from '@angular/material/core';
 import {MatStepperModule} from '@angular/material/stepper';  
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 const globalRippleConfig: RippleGlobalOptions = {
@@ -32,7 +33,8 @@ const MaterialComponents = [
   MatIconModule,
   MatRippleModule,
   MatStepperModule,
-  MatTabsModule
+  MatTabsModule,
+  MatProgressSpinnerModule
 ];
 
 @NgModule({

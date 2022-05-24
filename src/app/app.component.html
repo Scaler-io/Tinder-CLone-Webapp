@@ -1,6 +1,11 @@
-<tinder-clone-navbar></tinder-clone-navbar>
 
 <main>
+    <tinder-clone-navbar></tinder-clone-navbar>
     <router-outlet></router-outlet>
-    <tinder-clone-footer *ngIf="!isGenericErrorPage"></tinder-clone-footer>
+    <tinder-clone-footer *ngIf="!isGenericErrorPage && !isAppLoading"></tinder-clone-footer>
 </main>
+
+<div #pageLoader class="loading-overlay">
+    <mat-spinner diameter="50" class="loading__spinner"></mat-spinner>
+    <span class="loading__text">Please wait while loading...</span>
+</div>

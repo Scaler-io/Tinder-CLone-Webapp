@@ -15,6 +15,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppLoadingInterceptor } from './core/interceptors/app-loading.interceptor';
 import { ConfirmResourceAuthorityInterceptor } from './core/interceptors/confirm-resource-authority.interceptor';
 import { CoreModule } from './core/core.module';
+import { AppMaterialModule } from './app-material.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { CoreModule } from './core/core.module';
     BrowserAnimationsModule,
     HomeModule,
     CoreModule,
+    AppMaterialModule,
     EffectsModule.forRoot([AuthEffect]),
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
