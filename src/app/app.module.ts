@@ -18,9 +18,7 @@ import { CoreModule } from './core/core.module';
 import { AppMaterialModule } from './app-material.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     // modules
     BrowserModule,
@@ -32,13 +30,21 @@ import { AppMaterialModule } from './app-material.module';
     EffectsModule.forRoot([AuthEffect]),
     StoreModule.forRoot(appReducers),
     StoreDevtoolsModule.instrument({
-      logOnly: environment.production
-    })
+      logOnly: environment.production,
+    }),
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: ConfirmResourceAuthorityInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: AppLoadingInterceptor, multi: true}
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ConfirmResourceAuthorityInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppLoadingInterceptor,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

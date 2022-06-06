@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
+import { MemberAuthComponent } from './member-auth.component';
 
 const routes: Routes = [
-  {path: 'signup', component: SignupComponent},
+  {path: 'signup', component: MemberAuthComponent},
   {path: '',  redirectTo: 'signup'}
 ]
 

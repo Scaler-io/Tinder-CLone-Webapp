@@ -1,0 +1,10 @@
+@import "../../../../../assets/styles/colors";
+
+.form-container {
+  &__button {
+    &--button {
+      background-color: $color-blue-600;
+      color: #fff;
+    }
+  }
+}

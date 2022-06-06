@@ -1,0 +1,21 @@
+@import "../../../assets/styles/colors";
+
+.member-auth--main {
+  height: 100%;
+  .container-row {
+    display: flex;
+    padding: 0 35px 0 35px;
+    .col-left-panel {
+      width: calc(100% - 600px);
+      background: url("../../../assets/images/banner_background_4.png")
+        no-repeat !important;
+      background-size: contain !important;
+    }
+    .col-right-panel {
+      width: 600px;
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+}

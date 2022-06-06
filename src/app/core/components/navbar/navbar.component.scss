@@ -1,38 +1,38 @@
-@import '../../../../assets/styles/colors';
-@import '../../../../assets/styles/mixins';
+@import "../../../../assets/styles/colors";
+@import "../../../../assets/styles/mixins";
 
-.nav--main{
-    padding: 20px;
-    background: none;
-    padding: 20px;
-    &-container{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        padding: 30px 15px 20px;
-        .nav-brand{
-            font-size: 25px;
-            color: $color-blue-500;
-            cursor: pointer;
-        }
-        .nav-navigation{
-            display: flex;
-            gap: 30px;
-            list-style: none;
-            flex-direction: row-reverse;
-            text-transform: uppercase;
-            &-item.item-text{
-                font-size: 14px;
-                padding-top: 4px;
-                letter-spacing: 1px;
-                cursor: pointer;
-                transition: color .3s;
-                padding: 5px;
-                &:hover{
-                    color: $color-blue-700; 
-                }
-            }
-        }
+.nav--main {
+  padding: 20px;
+  background: none;
+  padding: 20px;
+  margin-bottom: 40px;
+  &-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 30px 15px 20px;
+    .nav-brand {
+      font-size: 25px;
+      color: $color-blue-500;
+      cursor: pointer;
     }
+    .nav-navigation {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      flex-direction: row-reverse;
+      text-transform: uppercase;
+      &-item.item-text {
+        font-size: 14px;
+        padding-top: 4px;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: color 0.3s;
+        padding: 5px;
+        &:hover {
+          color: $color-blue-700;
+        }
+      }
+    }
+  }
 }
-

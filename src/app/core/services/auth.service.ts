@@ -28,6 +28,12 @@ export class AuthService {
     return of();
   }
 
+  public checkUserNameExists(username: string): Observable<boolean> {
+    return this.http.get<boolean>(`${environment.tinderCloneApiUrl}/account/IsUsernameExists?username=${username}`).pipe(map(response => {
+      return response;
+    }));
+  }
+
   public setTokenToLocalStorage(token: string): void{
     localStorage.setItem('auth-token', token);
   }

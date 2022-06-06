@@ -1,37 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/theming';
-@import './assets/styles/colors';
+@import "~@angular/material/theming";
+@import "./assets/styles/colors";
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-.mat-form-field{
-    width: 100%;
+html,
+body {
+  height: 100%;
 }
-
-.btn-block{
-    width: 100%;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.autoWidth{
-    width: 100%!important;
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-.disabled{
-    opacity: .6
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.autoWidth {
+  width: 100% !important;
+}
+
+.disabled {
+  opacity: 0.6;
 }
 
 @mixin mat-ripple-theme($theme) {
-    .mat-ripple-element {
-        background-color: rgba(207, 17, 17, 0.4);
-    }
+  .mat-ripple-element {
+    background-color: rgba(207, 17, 17, 0.4);
+  }
 }
-  
-.mat-progress-spinner circle, .mat-spinner circle{
-    stroke: $color-blue-700!important;
+
+.mat-progress-spinner circle,
+.mat-spinner circle {
+  stroke: $color-blue-700 !important;
+}
+
+.mat-option.mat-active {
+  background: $color-signature-gradient !important;
+  color: #fff !important;
 }

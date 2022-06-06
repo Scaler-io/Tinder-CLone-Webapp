@@ -1,0 +1,40 @@
+<div class="form-container" [formGroup]="memberRegistrationForm">
+  <div class="form-container__header">
+    <h3>Add new account</h3>
+  </div>
+  <div class="form-container__form" formGroupName="accountFormGroup">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" />
+      <mat-spinner
+        [diameter]="20"
+        matSuffix
+        *ngIf="accountFormGroup.get('username').pending"
+      ></mat-spinner>
+      <mat-error>{{ getErrorMessage("username") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" formControlName="newPassword" />
+      <mat-error>{{ getErrorMessage("newPassword") }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Confirm password</mat-label>
+      <input matInput type="password" formControlName="passwordConfirm" />
+      <mat-error>{{ getErrorMessage("passwordConfirm") }}</mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="form-container__button">
+    <button mat-button class="form-container__button--button" cdkStepperNext>
+      Next
+    </button>
+  </div>
+</div>
+
+<!-- [disabled]="
+        accountFormGroup.invalid ||
+        (!accountFormGroup.pristine && accountFormGroup.pending)
+      " -->

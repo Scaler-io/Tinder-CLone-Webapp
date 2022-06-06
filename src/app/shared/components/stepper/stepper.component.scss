@@ -1,84 +1,96 @@
-@import '../../../../assets/styles/colors';
+@import "../../../../assets/styles/colors";
+@import "../../../../assets/styles/mixins";
 
-.stepper-header{
-    .stepper-nav{
+.stepper-container {
+  width: 650px;
+}
+.stepper-header {
+  .stepper-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+    column-gap: 100px;
+    &-item {
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      .stepper-step-label {
         display: flex;
-        flex-direction: row;
-        list-style: none;
-        column-gap: 100px;
-        &-item{
-            cursor: pointer;
-            position: relative;
-            z-index: 1;
-            .stepper-step-label{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                position: relative;
-                padding: 10px;
-                &-pill{
-                    position: relative;
-                    width:20px;
-                    height: 20px;
-                    background-color: $color-gray-400;
-                    border-radius: 50%;
-                    color: #fff;
-                    text-align: center;
-                    font-size: 10px;
-                    margin-bottom: 10px;  
-                    .mat-icon{
-                        font-size: 16px;
-                        transform: translate(-10%, 10%);
-                    }
-                    &.active{
-                        background-color: $color-blue-600;
-                        transition: .3s all;
-                    }
-                    &.active::before{
-                        content: '';
-                        position: absolute;
-                        width:20px;
-                        height: 20px;
-                        transform: scale(140%);
-                        background-color: $color-blue-200;
-                        left:0;
-                        top:0;
-                        z-index: -1;
-                        border-radius: 50%;  
-                    }
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 10px;
+        &-pill {
+          position: relative;
+          width: 20px;
+          height: 20px;
+          background-color: $color-gray-400;
+          border-radius: 50%;
+          color: #fff;
+          text-align: center;
+          font-size: 10px;
+          margin-bottom: 10px;
+          .mat-icon {
+            font-size: 16px;
+            transform: translate(-10%, 10%);
+          }
+          &.active {
+            background-color: $color-blue-600;
+            transition: 0.3s all;
+          }
+          &.active::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            transform: scale(140%);
+            background-color: $color-blue-200;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            border-radius: 50%;
+          }
 
-                    &.completed{
-                        background-color: $color-green-600;
-                        transition: .3s all;
-                    }
-                    &.completed::before{
-                        background-color: $color-green-200;
-                    }
-                }
-            }
-      
-            &.step-line::before {
-                content: '';
-                position: absolute;
-                height: 2px;
-                width: 0px;
-                left: 100%;
-                top: 30%;  
-                background-color: $color-gray-300;
-                transition: .3s all ease-in-out;
-            } 
-
-            &.step-line.step-line--active::before{
-                background-color: rgba($color-green-700, .5)!important;
-                width: 101px;
-                transition: .3s all ease-in-out;
-            }
-
+          &.completed {
+            background-color: $color-green-600;
+            transition: 0.3s all;
+          }
+          &.completed::before {
+            background-color: $color-green-200;
+          }
         }
+      }
+
+      &.step-line::before {
+        content: ""; 
+        position: absolute;
+        height: 2px;
+        width: 0;
+        left: 100%;
+        top: 30%;
+        background-color: $color-gray-300;
+        transition: 0.3s all ease-in-out;
+      }
+
+      &.step-line.step-line--active::before {
+        background-color: rgba($color-green-700, 0.5) !important;
+        transition: 0.3s all ease-in-out;
+      }
+      &.step-line.step-line--active.tinder-step-line2::before {
+        @include stepLineForSize($s: 2);
+      }
+      &.step-line.step-line--active.tinder-step-line3::before {
+        @include stepLineForSize($s: 3);
+      }
+      &.step-line.step-line--active.tinder-step-line4::before {
+        @include stepLineForSize($s: 4);
+      }
     }
+  }
 }
 
-
-// &
-// &--active{
+.stepper-content {
+  padding: 20px 10px 10px 10px;
+}

@@ -1,0 +1,130 @@
+<div class="form-container" [formGroup]="memberRegistrationForm">
+  <div class="form-container__header">
+    <h3>Add profile information</h3>
+  </div>
+  <div class="form-container__form" formGroupName="profileDetailsFormGroup">
+    <!-- General informations -->
+    <mat-grid-list cols="3" rowHeight="3:1" gutterSize="20">
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Public name</mat-label>
+          <input matInput type="text" formControlName="knownAs" />
+          <mat-error>{{ getErrorMessage("knownAs") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option
+              *ngFor="let item of genderDropdownItems"
+              [value]="item"
+              >{{ item }}</mat-option
+            >
+          </mat-select>
+          <mat-error>{{ getErrorMessage("gender") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Dob</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            [max]="maxDate"
+            type="text"
+            formControlName="dateOfBirth"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error>{{ getErrorMessage("dateOfBirth") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <!-- Address Details 1 -->
+    <mat-grid-list cols="3" [rowHeight]="'3:1'" gutterSize="20">
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Unit number</mat-label>
+          <input matInput type="text" formControlName="unitNumber" />
+          <mat-error>{{ getErrorMessage("unitNumber") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Street number</mat-label>
+          <input matInput type="text" formControlName="streetNumber" />
+          <mat-error>{{ getErrorMessage("streetNumber") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Street name</mat-label>
+          <input matInput type="text" formControlName="streetName" />
+          <mat-error>{{ getErrorMessage("streetName") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Street type</mat-label>
+          <input
+            type="text"
+            matInput
+            [matAutocomplete]="streetTypesAuto"
+            formControlName="streetType"
+          />
+          <mat-autocomplete #streetTypesAuto="matAutocomplete">
+            <mat-option
+              *ngFor="let suggestion of streetTypeSuggestionsList"
+              [value]="suggestion.type"
+              >{{ suggestion.type }}</mat-option
+            >
+            <!-- <div>
+          </div> -->
+          </mat-autocomplete>
+          <mat-error>{{ getErrorMessage("streetType") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>City</mat-label>
+          <input matInput type="text" formControlName="city" />
+          <mat-error>{{ getErrorMessage("city") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>State</mat-label>
+          <input matInput type="text" formControlName="state" />
+          <mat-error>{{ getErrorMessage("state") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field>
+          <mat-label>Post code</mat-label>
+          <input matInput type="text" formControlName="postCode" />
+          <mat-error>{{ getErrorMessage("postCode") }}</mat-error>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <div class="form-container__form__button-group">
+      <button mat-button cdkStepperPrevious class="btn">Prev</button>
+      <button mat-button class="btn" (click)="submitSubscription()">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

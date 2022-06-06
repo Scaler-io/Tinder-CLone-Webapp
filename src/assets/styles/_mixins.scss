@@ -39,3 +39,16 @@
     @content;
   }
 }
+
+// stepper-mixins
+@mixin stepLineForSize($s) {
+  @if $s == 2 {
+    width: 200px !important;
+  }
+  @if $s == 3 {
+    width: 105px !important;
+  }
+  @if $s == 4 {
+    width: 101px !important;
+  }
+}

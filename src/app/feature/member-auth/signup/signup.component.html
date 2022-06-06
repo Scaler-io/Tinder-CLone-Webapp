@@ -1,22 +1,20 @@
 <section class="auth--main">
-    <div class="signup--form-container">
-        <tinder-clone-stepper [linearMode]="true">
-          <cdk-step label="Account details" [completed]="true">
-            This is the Account
-            <button mat-button cdkStepperNext >Next</button>
-          </cdk-step>
-          <cdk-step label="Personal Details" [completed]="true" >
-            This is the Personal
-            <button mat-button cdkStepperPrevious >Prev</button>
-            <button mat-button cdkStepperNext >Next</button>
-          </cdk-step> 
-          <cdk-step label="Finalize Details" [completed]="true">
-            This is the Finalize
-            <button mat-button cdkStepperPrevious >Prev</button>
-            <button mat-button (click)="onClick()">Submit</button>
-          </cdk-step>
-        </tinder-clone-stepper>
-    </div> 
+  <div class="signup--form-container">
+    <div class="heading--text">
+      <h3>New Membership</h3>
+    </div>
+    <tinder-clone-stepper [linearMode]="true">
+      <cdk-step label="Account details" [completed]="true">
+        <tinder-clone-member-account-details
+          [memberRegistrationForm]="memberRegistrationForm"
+        ></tinder-clone-member-account-details>
+      </cdk-step>
+
+      <cdk-step label="Personal Details" [completed]="true">
+        <tinder-clone-member-profile-details
+          [memberRegistrationForm]="memberRegistrationForm"
+        ></tinder-clone-member-profile-details>
+      </cdk-step>
+    </tinder-clone-stepper>
+  </div>
 </section>
-
-
