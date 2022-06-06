@@ -1,4 +1,11 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { startWith } from 'rxjs';
 import { BaseFormGroupHelper } from 'src/app/feature/form-groups/BaseFormGroupHelper';
@@ -16,6 +23,7 @@ import { validationMessage } from 'src/app/shared/validators/validationMessage';
   styleUrls: ['./member-profile-details.component.scss'],
 })
 export class MemberProfileDetailsComponent implements OnInit, OnDestroy {
+  @ViewChild('city', { static: false }) city: ElementRef;
   @Input() memberRegistrationForm: FormGroup;
 
   public genderDropdownItems: string[] = [

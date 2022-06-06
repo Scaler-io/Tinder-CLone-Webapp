@@ -7,21 +7,21 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MemberAuthComponent } from './member-auth.component';
 import { MemberAccountDetailsComponent } from './signup/member-account-details/member-account-details.component';
 import { MemberProfileDetailsComponent } from './signup/member-profile-details/member-profile-details.component';
-
-
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   declarations: [
     SignupComponent,
     MemberAuthComponent,
     MemberAccountDetailsComponent,
-    MemberProfileDetailsComponent
+    MemberProfileDetailsComponent,
   ],
   imports: [
     CommonModule,
     MemberAuthRoutingModule,
     AppMaterialModule,
-    SharedModule
-  ]
+    CoreModule,
+    SharedModule,
+  ],
 })
-export class MemberAuthModule { }
+export class MemberAuthModule {}

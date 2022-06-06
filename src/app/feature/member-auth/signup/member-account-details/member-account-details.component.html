@@ -28,13 +28,16 @@
   </div>
 
   <div class="form-container__button">
-    <button mat-button class="form-container__button--button" cdkStepperNext>
+    <button
+      mat-button
+      class="form-container__button--button"
+      cdkStepperNext
+      [disabled]="
+        accountFormGroup.invalid ||
+        (!accountFormGroup.pristine && accountFormGroup.pending)
+      "
+    >
       Next
     </button>
   </div>
 </div>
-
-<!-- [disabled]="
-        accountFormGroup.invalid ||
-        (!accountFormGroup.pristine && accountFormGroup.pending)
-      " -->

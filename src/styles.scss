@@ -59,6 +59,11 @@ body {
   }
 }
 
+.mat-button-disabled {
+  color: #fff !important;
+  opacity: 0.5 !important;
+}
+
 .mat-progress-spinner circle,
 .mat-spinner circle {
   stroke: $color-blue-700 !important;
