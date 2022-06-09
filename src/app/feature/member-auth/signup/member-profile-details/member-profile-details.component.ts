@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import * as moment from 'moment';
 import { startWith } from 'rxjs';
 import { BaseFormGroupHelper } from 'src/app/feature/form-groups/BaseFormGroupHelper';
@@ -18,6 +19,9 @@ import {
 import { ApprovedGenderList } from 'src/app/shared/models/constants';
 import { IMemberRegistrationFormData } from 'src/app/shared/models/form-group-model/memberRegistrationFormModel';
 import { validationMessage } from 'src/app/shared/validators/validationMessage';
+import { AppState } from 'src/app/store/app.state';
+import * as sharedActions from '../../../state/shared/shared.actions';
+import * as authActions from '../../../state/auth/auth.actions';
 
 @Component({
   selector: 'tinder-clone-member-profile-details',
@@ -41,7 +45,7 @@ export class MemberProfileDetailsComponent implements OnInit, OnDestroy {
   public subscriptions = {
     streetTypeSuggestions: null,
   };
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.approvedStreetTypes = StreetTypes;
@@ -78,7 +82,8 @@ export class MemberProfileDetailsComponent implements OnInit, OnDestroy {
       .value as IMemberRegistrationFormData;
     let request =
       MemberRegistrationRequestMapper.mapToRegistrationPayload(formData);
-    console.log(request);
+    this.store.dispatch(new sharedActions.AppLoadingStateChange(true));
+    this.store.dispatch(new authActions.MemberRegistrationStart(request));
   }
 
   public getErrorMessage(control: string): string {

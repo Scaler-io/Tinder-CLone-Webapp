@@ -17,7 +17,7 @@ export class AuthService {
   public memberRegistration(request: MemberRegistrationRequest) {
     return this.http
       .post<AuthUser>(
-        `${environment.tinderCloneApiUrl}/account/signup`,
+        `${environment.tinderCloneApiUrl}/account/register`,
         request
       )
       .pipe(

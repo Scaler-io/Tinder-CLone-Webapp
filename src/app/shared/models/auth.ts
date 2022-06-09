@@ -18,13 +18,13 @@ export interface AuthError {
 }
 
 export interface Address {
-  unitNumber: string;
-  streetNumber: string;
+  unitNumber: number;
+  streetNumber: number;
   streetName: string;
   streetType: string;
   city: string;
   state: string;
-  postCode: string;
+  postCode: number;
 }
 
 export interface Profile {

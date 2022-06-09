@@ -17,13 +17,13 @@ export class MemberRegistrationRequestMapper {
           registrationRequest.profileDetails.dateOfBirth
         ),
         address: {
-          unitNumber: registrationRequest.profileDetails.unitNumber,
-          streetNumber: registrationRequest.profileDetails.streetNumber,
+          unitNumber: +registrationRequest.profileDetails.unitNumber,
+          streetNumber: +registrationRequest.profileDetails.streetNumber,
           streetName: registrationRequest.profileDetails.streetName,
           streetType: registrationRequest.profileDetails.streetType,
           city: registrationRequest.profileDetails.city,
           state: registrationRequest.profileDetails.state,
-          postCode: registrationRequest.profileDetails.postCode,
+          postCode: +registrationRequest.profileDetails.postCode,
         },
       },
     };

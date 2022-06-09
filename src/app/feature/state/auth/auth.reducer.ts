@@ -4,7 +4,7 @@ import * as authActions from './auth.actions';
 export interface AuthState {
   authUser: AuthUser | null;
   isAuthenticated: boolean;
-  authError: AuthError
+  authError: AuthError;
 }
 
 export const AUTH_STATE_NAME = 'auth';
@@ -12,7 +12,7 @@ export const AUTH_STATE_NAME = 'auth';
 export const initialState: AuthState = {
   authUser: null,
   isAuthenticated: null,
-  authError: null
+  authError: null,
 };
 
 export function authReducer(
@@ -23,22 +23,41 @@ export function authReducer(
     case authActions.MEMBER_LOGIN_START:
       return {
         ...state,
-        isAuthenticated: true,
+        isAuthenticated: false,
       };
     case authActions.MEMBER_LOGIN_SUCCESS:
       return {
         ...state,
         isAuthenticated: true,
         authError: null,
-        authUser: action.payload
-      }
+        authUser: action.payload,
+      };
     case authActions.MEMBER_LOGIN_FAILED:
       return {
         ...state,
         isAuthenticated: false,
         authUser: null,
-        authError: action.payload
-      }
+        authError: action.payload,
+      };
+    case authActions.MEMBER_REGISTRATION_START:
+      return {
+        ...state,
+        isAuthenticated: false,
+      };
+    case authActions.MEMBER_REGISTRATION_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        authError: null,
+        authUser: action.payload,
+      };
+    case authActions.MEMBER_REGISTRATION_FAILED:
+      return {
+        ...state,
+        isAuthenticated: false,
+        authUser: null,
+        authError: action.payload,
+      };
     default:
       return state;
   }
