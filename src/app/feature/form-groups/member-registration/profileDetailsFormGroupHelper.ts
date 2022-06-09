@@ -7,7 +7,7 @@ export class ProfileDetailsFormGroupHelper extends BaseFormGroupHelper {
       knownAs: ['', [Validators.required]],
       gender: ['', Validators.required],
       dateOfBirth: ['', Validators.required],
-      unitNumber: ['', Validators.required],
+      unitNumber: [''],
       streetNumber: ['', Validators.required],
       streetName: ['', Validators.required],
       streetType: ['', Validators.required],

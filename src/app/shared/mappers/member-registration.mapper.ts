@@ -1,25 +1,35 @@
 import { MemberRegistrationRequest } from '../models/auth';
+import { IMemberRegistrationFormData } from '../models/form-group-model/memberRegistrationFormModel';
+import { MomentToStringDateMapper } from './date.mapper';
 
-export function MemberRegistrationRequestMapper(
-  registrationRequest
-): MemberRegistrationRequest {
-  return <MemberRegistrationRequest>{
-    username: registrationRequest.accountFormGroup.username,
-    password: registrationRequest.accountFormGroup.newPassword,
-    confirmPassword: registrationRequest.accountFormGroup.confirmPassword,
-    Profile: {
-      knownAs: registrationRequest.profileDetailsFormGroup.knownAs,
-      gender: registrationRequest.profileDetailsFormGroup.gender,
-      dateOfBirth: registrationRequest.profileDetailsFormGroup.dateOfBirth,
-      address: {
-        unitNumber: registrationRequest.profileDetailsFormGroup.unitNumber,
-        streetNumber: registrationRequest.profileDetailsFormGroup.streetNumber,
-        streetName: registrationRequest.profileDetailsFormGroup.streetName,
-        streetType: registrationRequest.profileDetailsFormGroup.streetType,
-        city: registrationRequest.profileDetailsFormGroup.city,
-        state: registrationRequest.profileDetailsFormGroup.state,
-        postCode: registrationRequest.profileDetailsFormGroup.postCode,
+export class MemberRegistrationRequestMapper {
+  public static mapToRegistrationPayload(
+    registrationRequest: IMemberRegistrationFormData
+  ): MemberRegistrationRequest {
+    return <MemberRegistrationRequest>{
+      username: registrationRequest.account.username,
+      password: registrationRequest.account.newPassword,
+      confirmPassword: registrationRequest.account.passwordConfirm,
+      Profile: {
+        knownAs: registrationRequest.profileDetails.knownAs,
+        gender: registrationRequest.profileDetails.gender,
+        dateOfBirth: MomentToStringDateMapper.toDateString(
+          registrationRequest.profileDetails.dateOfBirth
+        ),
+        address: {
+          unitNumber: registrationRequest.profileDetails.unitNumber,
+          streetNumber: registrationRequest.profileDetails.streetNumber,
+          streetName: registrationRequest.profileDetails.streetName,
+          streetType: registrationRequest.profileDetails.streetType,
+          city: registrationRequest.profileDetails.city,
+          state: registrationRequest.profileDetails.state,
+          postCode: registrationRequest.profileDetails.postCode,
+        },
       },
-    },
-  };
+    };
+  }
+
+  private static convertDate(value) {
+    MomentToStringDateMapper.toDateString(value);
+  }
 }

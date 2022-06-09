@@ -31,7 +31,7 @@ export const YYYY_MM_DD: DateFormatOption = {
     dateInput: 'YYYY-MM-DD',
   },
   display: {
-    dateInput: 'LL',
+    dateInput: 'YYYY-MM-DD',
     monthYearLabel: 'MMMM YYYY',
     dateA11yLabel: 'LL',
     monthYearA11yLabel: 'MMMM YYYY',

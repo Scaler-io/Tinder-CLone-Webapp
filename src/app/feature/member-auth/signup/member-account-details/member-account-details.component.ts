@@ -18,7 +18,7 @@ export class MemberAccountDetailsComponent implements OnInit {
   public get accountFormGroup(): FormGroup {
     return BaseFormGroupHelper.getChildForm(
       this.memberRegistrationForm,
-      'accountFormGroup'
+      'account'
     );
   }
 

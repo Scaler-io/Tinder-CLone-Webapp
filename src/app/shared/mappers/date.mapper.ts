@@ -1,6 +1,5 @@
-import { MomentDateAdapter } from '@angular/material-moment-adapter';
-
-export function toDateString(dateValue: MomentDateAdapter): string {
-  console.log(dateValue);
-  return '';
+export class MomentToStringDateMapper {
+  public static toDateString(dateValue: moment.Moment): string {
+    return dateValue.year() + '-' + dateValue.month() + '-' + dateValue.day();
+  }
 }

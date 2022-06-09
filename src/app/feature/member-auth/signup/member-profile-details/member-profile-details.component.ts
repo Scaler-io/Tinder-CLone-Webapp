@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import * as moment from 'moment';
 import { startWith } from 'rxjs';
 import { BaseFormGroupHelper } from 'src/app/feature/form-groups/BaseFormGroupHelper';
 import { MemberRegistrationRequestMapper } from 'src/app/shared/mappers/member-registration.mapper';
@@ -15,6 +16,7 @@ import {
   StreetTypes,
 } from 'src/app/shared/models/address-helpers';
 import { ApprovedGenderList } from 'src/app/shared/models/constants';
+import { IMemberRegistrationFormData } from 'src/app/shared/models/form-group-model/memberRegistrationFormModel';
 import { validationMessage } from 'src/app/shared/validators/validationMessage';
 
 @Component({
@@ -23,7 +25,6 @@ import { validationMessage } from 'src/app/shared/validators/validationMessage';
   styleUrls: ['./member-profile-details.component.scss'],
 })
 export class MemberProfileDetailsComponent implements OnInit, OnDestroy {
-  @ViewChild('city', { static: false }) city: ElementRef;
   @Input() memberRegistrationForm: FormGroup;
 
   public genderDropdownItems: string[] = [
@@ -61,21 +62,22 @@ export class MemberProfileDetailsComponent implements OnInit, OnDestroy {
   public get profileDetailsFormGroup(): FormGroup {
     return BaseFormGroupHelper.getChildForm(
       this.memberRegistrationForm,
-      'profileDetailsFormGroup'
+      'profileDetails'
     );
   }
 
   public get accountDetailsFormGroup(): FormGroup {
     return BaseFormGroupHelper.getChildForm(
       this.memberRegistrationForm,
-      'accountDetailsFormGroup'
+      'account'
     );
   }
 
   public submitSubscription() {
-    const request = MemberRegistrationRequestMapper(
-      this.memberRegistrationForm.value
-    );
+    let formData = this.memberRegistrationForm
+      .value as IMemberRegistrationFormData;
+    let request =
+      MemberRegistrationRequestMapper.mapToRegistrationPayload(formData);
     console.log(request);
   }
 

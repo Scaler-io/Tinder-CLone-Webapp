@@ -9,12 +9,11 @@ export class MemberRegistrationFormGroupHelper extends BaseFormGroupHelper {
     authService: AuthService
   ): FormGroup {
     return this.fb.group({
-      accountFormGroup:
+      account:
         AccountDetailsFormGroupHelper.createMemberAccountDetailsForm(
           authService
         ),
-      profileDetailsFormGroup:
-        ProfileDetailsFormGroupHelper.createProfileDetailsForm(),
+      profileDetails: ProfileDetailsFormGroupHelper.createProfileDetailsForm(),
     });
   }
 }
